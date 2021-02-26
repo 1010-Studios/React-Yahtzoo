@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Yahtzoo!</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<script src="app.js" async defer></script>
+		<div class="main--container">
+			<div class="active--player">Player 1's Turn</div>
+			<div class="game--area">
+				<div class="dice--area">
+					<span class="hold--cell--msg">Drag dice here to hold them</span>
+					<div
+						class="dice--hold"
+						onDrop="drop(event)"
+						ondragover="allowDrop(event)"
+					></div>
+					<div
+						class="dice--reroll"
+						onDrop="drop(event)"
+						ondragover="allowDrop(event)"
+					>
+						<span class="hold--cell-msg">DICE</span>
+					</div>
+				</div>
+				<button class="btn" id="btn--roll">Roll Dice</button>
+				<button class="btn" id="btn--score">Check Score!</button>
+			</div>
+			<div class="scoreboard"></div>
+		</div>
+		<div class="score--container hidden">
+			<button class="btn--close" id="btn--close">X</button>
+			<h3>Choose allotment</h3>
+			<table class="score--selection">
+				<tr>
+					<td>Ones:</td>
+					<td><button class="btn--score" value="0">1</button></td>
+				</tr>
+				<tr>
+					<td>Twos:</td>
+					<td><button class="btn--score" value="0">2</button></td>
+				</tr>
+				<tr>
+					<td>Threes:</td>
+					<td><button class="btn--score" value="0">3</button></td>
+				</tr>
+				<tr>
+					<td>Fours:</td>
+					<td><button class="btn--score" value="0">4</button></td>
+				</tr>
+				<tr>
+					<td>Fives:</td>
+					<td><button class="btn--score" value="0">5</button></td>
+				</tr>
+				<tr>
+					<td>Sixes:</td>
+					<td><button class="btn--score" value="0">6</button></td>
+				</tr>
+				<tr>
+					<td>3x Kind:</td>
+					<td><button class="btn--score" value="0">7</button></td>
+				</tr>
+				<tr>
+					<td>4x Kind:</td>
+					<td><button class="btn--score" value="0">8</button></td>
+				</tr>
+				<tr>
+					<td>Full House:</td>
+					<td><button class="btn--score" value="0">11</button></td>
+				</tr>
+				<tr>
+					<td>Small Straight:</td>
+					<td><button class="btn--score" value="0">9</button></td>
+				</tr>
+				<tr>
+					<td>Large Straight:</td>
+					<td><button class="btn--score" value="0">10</button></td>
+				</tr>
+				<tr>
+					<td>Yahtzee:</td>
+					<td><button class="btn--score" value="0">12</button></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# React - Yahtzoo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### It's legally distinct from Yahtzee!!
 
-## Available Scripts
+###### Live View:
 
-In the project directory, you can run:
+This is a porfolio project started on February 28, 2021.
 
-### `npm start`
+### Yahtzee Rules:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+(From https://www.dicegamedepot.com/yahtzee-rules/ )
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### How to Play Yahtzee
 
-### `npm test`
+Choose a starting player by any method (oldest player, youngest player, highest roll of the dice, etc.)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Beginning with the starting player, players will take turns one at a time in clockwise order. The game consists of thirteen rounds and at the end of the thirteenth round then the game will end. (All the categories on the players’ score cards will be completely filled in at that point.)
 
-### `npm run build`
+At the start of a turn, the player takes all 5 dice and rolls them. They can then roll some or all of the dice up to two more times, setting aside any dice they’d like to keep and rerolling the rest. The dice can be scored after any of the rolls, but scoring the dice ends the player’s turn. Setting dice aside after one roll does not prevent one or more of them from being rolled again on any subsequent roll if the player so chooses.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Each player’s goal is to try and score as high as they can in one of the thirteen categories shown on their score card.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To score the dice, the player selects one of the categories on their score card and writes the score into it. Each category can be scored only once per game (except for the Yahtzee category). Categories can be filled in any order. A player must score the dice on their turn even if it turns out that there are no good categories remaining to score in. Once a category is filled it may not be changed.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A player may write a score of zero in any category if they have rolled no point-generating results or if they simply choose to do so. For example, a player could put a roll of 2-4-5-6-6 into the Ones category even though it would score zero points.
 
-### `npm run eject`
+After marking their score on their score card, the player’s turn ends and play proceeds to the player on their left.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The categories on the score card are divided into two sections. The categories in the Upper Section are:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ###### Ones
+  - What is needed to score: Ones
+  - How many points are scored: Receive 1 point for each 1 rolled
+- ###### Twos
+  - What is needed to score: Twos
+  - How many points are scored: Receive 2 points for each 2 rolled
+- ###### Threes
+  What is needed to score: Threes
+  How many points are scored: Receive 3 points for each 3 rolled
+- ###### Fours
+  - What is needed to score: Fours
+  - How many points are scored: Receive 4 points for each 4 rolled
+- ###### Fives
+  - What is needed to score: Fives
+  - How many points are scored: Receive 5 points for each 5 rolled
+- ###### Sixes
+  - What is needed to score: Sixes
+  - How many points are scored: Receive 6 points for each 6 rolled
+  - Ultimately, each player will want to try and score a grand total of 63 or more points in the Upper Section by the end of the game. If they do so, they receive a 35 point bonus.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The categories in the Lower Section are:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- ###### Three of a Kind
+  - What is needed to score: Three dice of the same number
+  - How many points are scored: Add up all the spots on all the dice. (For example, rolling 2-2-2-3-5 would score a total of 14 points.)
+- ###### Four of a Kind
+  - What is needed to score: Four dice of the same number
+  - How many points are scored: Add up all the spots on all the dice
+- ###### Full House
+  - What is needed to score: Three dice showing the same number, and two dice showing another number.
+  - How many points are scored: 25 points
+- ###### Small Straight
+  - What is needed to score: Any four consecutive numbers (for example, 3-4-5-6)
+  - How many points are scored: 30 points
+- ###### Large Straight
+  - What is needed to score: Any five consecutive numbers (for example, 1-2-3-4-5)
+  - How many points are scored: 40 points
+- ###### Yahtzee (or Five of a Kind)
+  - What is needed to score: All 5 dice showing the same number
+  - How many points are scored: 50 points
+- ###### Chance
+  - What is needed to score: Any combination of dice
+  - How many points are scored: Add up all the spots on all the dice
+  - It’s possible that a player will end up with a combination of dice that could be used in more than one category. For example, a roll of 3-3-3-4-4 could be scored as threes or fours in the Upper Section, or as a Full House or a Three-Of-A-Kind, or Chance in the Lower Section. The player has the option of scoring the dice in any one of those categories as long as they have not been used previously in the game.
 
-## Learn More
+#### Special Yahtzee Scoring
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+If a player rolls a Yahtzee on their turn but they have already filled in the Yahtzee category in a previous turn, then special scoring rules apply:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If the player has already filled in their Yahtzee box with a score of 50, they receive a Yahtzee bonus of 100 additional points. However, if their Yahtzee box was previously filled in with a score of zero then they don’t receive the Yahtzee bonus.
 
-### Code Splitting
+The player then selects another category (other than the Yahtzee category) to score the dice as normal.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If the category in the Upper Section that corresponds to the numbers in the Yahtzee is unused, then the player must use that category.
+If the corresponding box in the Upper Section has been used already then the player may choose to score one of the unused boxes in the Lower Section. In this case, the Yahtzee that the player has rolled acts as a “Joker” so that it can be placed in the Full House, Small Straight, and Large Straight categories if the player so wishes, even though it may not meet the standard requirements for those categories.
+If the player can’t use a box in either the upper or Lower Section, they score zero points.
 
-### Analyzing the Bundle Size
+#### Winning
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Once all players have taken thirteen turns (and subsequently filled in all the categories on their score card) the game ends.
 
-### Making a Progressive Web App
+Players add up their scores in the following manner:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+##### Upper Section
 
-### Advanced Configuration
+Mark the total sum of the Upper Section score in the corresponding total score box. If a player scores 63 or more points in the Upper Section then they receive a 35 point bonus.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+##### Lower Section
 
-### Deployment
+Mark the total sum of the Lower Section score in the corresponding total score box. Add 100 points for each check in the Yahtzee bonus box.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+##### Grand Total
 
-### `npm run build` fails to minify
+Add the total sums of the upper and Lower Sections together. This is the player’s total score for the game.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The player with the highest total score is the winner! In the case of a tie, all tied players share the victory.
