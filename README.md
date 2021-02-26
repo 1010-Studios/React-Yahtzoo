@@ -2,15 +2,13 @@
 
 ### It's legally distinct from Yahtzee!!
 
-###### Live View:
+#### Live View:
 
 This is a porfolio project started on February 28, 2021.
 
-### Yahtzee Rules:
+#### How to Play Yahtzee
 
 (From https://www.dicegamedepot.com/yahtzee-rules/ )
-
-#### How to Play Yahtzee
 
 Choose a starting player by any method (oldest player, youngest player, highest roll of the dice, etc.)
 
