@@ -1,4 +1,6 @@
 import './App.css';
+import DiceArea from './components/DiceArea';
+import PlayerArea from './components/PlayerArea';
 
 function App() {
 	return (
@@ -10,8 +12,8 @@ function App() {
 					</div>
 					<div className='logo-text'>Yahtzoo!</div>
 				</div>
-
-				<p>Hello</p>
+				<DiceArea />
+				<PlayerArea />
 			</section>
 		</div>
 	);
