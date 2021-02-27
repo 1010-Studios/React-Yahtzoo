@@ -1,38 +1,63 @@
+:root {
+	--board: #05491c;
+	--text: #d5e400;
+	--icon: #222422;
+	--header: 'Akaya Telivigala', cursive;
+	--bodytext: 'Oswald', sans-serif;
+}
+
 .App {
-  text-align: center;
+	text-align: center;
+	background-color: #222422;
+	min-height: 100vh;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+	.App-logo {
+		animation: App-logo-spin infinite 30s linear;
+	}
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(-15deg);
+	}
+	to {
+		transform: rotate(15deg);
+	}
+}
+
+.Game-container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	align-items: center;
+	background: var(--board);
+	font-family: var(--bodytext);
+	color: var(--text);
+	font-size: 2rem;
+}
+
+.logo-box {
+	position: relative;
+	min-width: 100px;
+	margin: 0.5rem 0;
+	align-self: flex-start;
+	font-family: var(--header);
+	padding: 2rem;
+	animation: App-logo-spin infinite 5s linear alternate;
+}
+
+.logo-back {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 4rem;
+	color: var(--icon);
+}
+
+.logo-text {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 }
