@@ -11,11 +11,13 @@
 .dice-active {
 	width: 75%;
 	max-width: 800px;
+	min-width: 350px;
 	min-height: 15vh;
 	border: 2px solid var(--text);
 	/* border-radius: 10px; */
 	text-align: center;
 	justify-items: center;
+	transition: all 0.2s ease-in-out;
 }
 
 .dice-hold {
@@ -50,8 +52,9 @@
 	opacity: 0.6;
 }
 
-.dragover {
-	border: 2px solid blue;
+.dragOver {
+	opacity: 0.8;
+	filter: hue-rotate(-30deg);
 }
 
 .btn-roll {

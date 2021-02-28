@@ -21,8 +21,6 @@ const DiceArea = () => {
 
 	function allowDrop(ev) {
 		ev.preventDefault();
-		const target = ev.target.closest('div').classList;
-		console.log(`This: ${target}`);
 	}
 
 	function drag(ev) {
@@ -30,23 +28,37 @@ const DiceArea = () => {
 		ev.dataTransfer.setData('text', ev.target.id);
 	}
 
+	function dragEnter(ev) {
+		ev.target.closest('div').classList.add('dragOver');
+	}
+
+	function dragExit(ev) {
+		ev.target.closest('div').classList.remove('dragOver');
+	}
+
 	function drop(ev) {
 		ev.preventDefault();
 		let data = ev.dataTransfer.getData('text');
 		const targetContainer = ev.target.closest('div');
 
-		if (targetContainer.className === 'dice-hold') {
-			const moveThis = activeDice.splice(activeDice.indexOf(Number(data)), 1);
-			setHoldDice([...holdDice, ...moveThis]);
-			// setActiveDice([...activeDice]);
-			console.log(`activeDice: ${activeDice}`);
-			console.log(`holdDice: ${holdDice}`);
+		if (targetContainer.className === 'dice-hold dragOver') {
+			let indexNo = activeDice.indexOf(Number(data));
+			console.log(indexNo);
+			if (indexNo !== -1) {
+				const moveThis = activeDice.splice(activeDice.indexOf(Number(data)), 1);
+				setHoldDice([...holdDice, ...moveThis]);
+			}
 		}
 
-		if (targetContainer.className === 'dice-active') {
-			const moveThis = holdDice.splice(holdDice.indexOf(Number(data)), 1);
-			setActiveDice([...activeDice, ...moveThis]);
+		if (targetContainer.className === 'dice-active dragOver') {
+			let indexNo = holdDice.indexOf(Number(data));
+			if (indexNo !== -1) {
+				const moveThis = holdDice.splice(holdDice.indexOf(Number(data)), 1);
+				setActiveDice([...activeDice, ...moveThis]);
+			}
 		}
+
+		targetContainer.classList.remove('dragOver');
 	}
 
 	/***********************************************
@@ -97,11 +109,21 @@ const DiceArea = () => {
 
 	return (
 		<section className='dice-container'>
-			<div onDrop={drop} onDragOver={allowDrop} className='dice-hold'>
+			<div
+				onDrop={drop}
+				onDragOver={allowDrop}
+				onDragEnter={dragEnter}
+				onDragExit={dragExit}
+				className='dice-hold'>
 				<h2>Hold</h2>
 				<DrawDice {...holdDice} />
 			</div>
-			<div onDrop={drop} onDragOver={allowDrop} className='dice-active'>
+			<div
+				onDrop={drop}
+				onDragOver={allowDrop}
+				onDragEnter={dragEnter}
+				onDragExit={dragExit}
+				className='dice-active'>
 				<h2>Active Roll</h2>
 				<DrawDice {...activeDice} />
 			</div>
