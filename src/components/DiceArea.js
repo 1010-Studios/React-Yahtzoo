@@ -6,10 +6,11 @@ const DiceArea = () => {
 	const [activeDice, setActiveDice] = useState([1, 2, 3, 4, 5]);
 
 	function rollDice() {
+		console.log(activeDice);
 		for (let i = 0; i < activeDice.length; i++) {
 			activeDice[i] = Math.floor(Math.random() * 6 + 1);
 		}
-		setActiveDice(activeDice);
+		setActiveDice([...activeDice]);
 	}
 
 	/***********************************************
@@ -32,9 +33,6 @@ const DiceArea = () => {
 	function drop(ev) {
 		ev.preventDefault();
 		let data = ev.dataTransfer.getData('text');
-		// console.log(`Data: ${data}`);
-		// console.log(data);
-		// console.log(activeDice);
 		const targetContainer = ev.target.closest('div');
 
 		if (targetContainer.className === 'dice-hold') {
