@@ -91,6 +91,7 @@ function toggleScoreScreen(scoreArr) {
 
 function allowDrop(ev) {
 	ev.preventDefault();
+	console.log(ev.target);
 }
 
 function drag(ev) {

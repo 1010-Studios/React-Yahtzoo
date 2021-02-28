@@ -34,10 +34,24 @@
 	margin-top: 0;
 }
 
-.dice-container i {
+.dice-draw li {
 	font-size: 4rem;
 	padding: 0 0.4rem;
 	cursor: pointer;
+}
+
+.dice-draw {
+	display: flex;
+	list-style: none;
+	justify-content: center;
+}
+
+.dragging {
+	opacity: 0.6;
+}
+
+.dragover {
+	border: 2px solid blue;
 }
 
 .btn-roll {
