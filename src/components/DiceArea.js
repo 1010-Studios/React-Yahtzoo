@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/DiceArea.css';
 
-const DiceArea = () => {
+const DiceArea = ({ setDiceState }) => {
 	const [holdDice, setHoldDice] = useState([]);
 	const [activeDice, setActiveDice] = useState([1, 2, 3, 4, 5]);
+
+	useEffect(() => {
+		setDiceState([...activeDice, ...holdDice].sort());
+	}, [holdDice, activeDice, setDiceState]);
 
 	function rollDice() {
 		console.log(activeDice);
@@ -63,7 +67,7 @@ const DiceArea = () => {
 
 	/***********************************************
 	 *
-	 * Render n sich
+	 * Rendering
 	 *
 	 ***********************************************/
 
