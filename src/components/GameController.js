@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DiceArea from './DiceArea';
 import PlayerArea from './PlayerArea';
+import ScoreSelector from './ScoreSelector';
 
 import scoring from '../logic/scoring';
 
@@ -22,6 +23,7 @@ const GameController = () => {
 			<h2>{[...diceState]}</h2> {/* Placeholder for data checking*/}
 			<DiceArea setDiceState={setDiceState} />
 			<PlayerArea />
+			<ScoreSelector {...score} />
 		</section>
 	);
 };
