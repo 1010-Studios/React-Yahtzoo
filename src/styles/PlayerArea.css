@@ -1,9 +1,14 @@
 .player-container {
 	width: 90%;
 	margin: 0;
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* align-items: center; */
+}
+
+.player-cards {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	justify-content: center;
 }
 
 .player-card {
