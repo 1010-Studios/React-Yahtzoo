@@ -1,7 +1,11 @@
 import React from 'react';
 import '../styles/ScoreSelector.css';
 
-const ScoreSelector = ({ diceScore, setActivePlayer, activePlayer }) => {
+const ScoreSelector = ({
+	diceScore,
+	setActivePlayerScore,
+	activePlayerScore,
+}) => {
 	const scoreWindow = document.querySelector('.win_score');
 
 	const ScoreTable = (score) => {
@@ -22,9 +26,9 @@ const ScoreSelector = ({ diceScore, setActivePlayer, activePlayer }) => {
 	//Button Click
 
 	const assignScore = (ev) => {
-		setActivePlayer(
-			{ ...activePlayer },
-			(activePlayer.scoreCard[ev.target.id] = Number(ev.target.value))
+		setActivePlayerScore(
+			{ ...activePlayerScore },
+			(activePlayerScore.scoreCard[ev.target.id] = Number(ev.target.value))
 		);
 		closeWindow();
 	};
