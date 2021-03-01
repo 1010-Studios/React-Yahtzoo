@@ -10,7 +10,6 @@ const DiceArea = ({ setDiceState }) => {
 	}, [holdDice, activeDice, setDiceState]);
 
 	function rollDice() {
-		console.log(activeDice);
 		for (let i = 0; i < activeDice.length; i++) {
 			activeDice[i] = Math.floor(Math.random() * 6 + 1);
 		}
@@ -47,7 +46,6 @@ const DiceArea = ({ setDiceState }) => {
 
 		if (targetContainer.className === 'dice-hold dragOver') {
 			let indexNo = activeDice.indexOf(Number(data));
-			console.log(indexNo);
 			if (indexNo !== -1) {
 				const moveThis = activeDice.splice(activeDice.indexOf(Number(data)), 1);
 				setHoldDice([...holdDice, ...moveThis]);

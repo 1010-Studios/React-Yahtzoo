@@ -11,9 +11,6 @@ const GameController = () => {
 	useEffect(() => {
 		setScore(scoring(diceState));
 	}, [diceState]);
-	// console.log(scoring());
-	// console.log(diceState);
-	// console.log(scoring([diceState]));
 	return (
 		<section className='Game-container'>
 			<div className='logo-box'>
