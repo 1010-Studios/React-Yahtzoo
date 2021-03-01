@@ -4,15 +4,22 @@ import PlayerArea from './PlayerArea';
 import ScoreSelector from './ScoreSelector';
 
 import scoring from '../logic/scoring';
+import player from '../logic/player';
 
 const GameController = () => {
 	const [diceState, setDiceState] = useState([]);
-	const [score, setScore] = useState(scoring(diceState));
-	const [activePlayer, setActivePlayer] = useState();
+	const [diceScore, setDiceScore] = useState(scoring(diceState));
+	const [activePlayer, setActivePlayer] = useState(player);
+	// console.log(activePlayer.scoreCard);
 
 	useEffect(() => {
-		setScore(scoring(diceState));
+		setDiceScore(scoring(diceState));
 	}, [diceState]);
+
+	useEffect(() => {
+		setActivePlayer(activePlayer);
+	}, [activePlayer]);
+
 	return (
 		<section className='Game-container'>
 			<div className='logo-box'>
@@ -21,9 +28,13 @@ const GameController = () => {
 				</div>
 				<div className='logo-text'>Yahtzoo!</div>
 			</div>
+			<ScoreSelector
+				diceScore={diceScore}
+				activePlayer={activePlayer}
+				setActivePlayer={setActivePlayer}
+			/>
 			<DiceArea setDiceState={setDiceState} />
-			<ScoreSelector {...score} activePlayer={activePlayer} />
-			<PlayerArea />
+			<PlayerArea {...activePlayer} />
 		</section>
 	);
 };

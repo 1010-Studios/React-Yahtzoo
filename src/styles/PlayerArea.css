@@ -1,0 +1,40 @@
+.player-container {
+	width: 90%;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.player-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 2px solid var(--text);
+	border-radius: 5px;
+	width: 30%;
+	text-transform: capitalize;
+}
+
+.player-card h4 {
+	margin: 0;
+}
+
+.player-card h5 {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.player-scores {
+	padding: 0 0.5rem;
+}
+
+.player-scoreboard {
+	display: flex;
+	font-size: 1rem;
+	margin: 0;
+}
+
+.player-scoreboard ul {
+	list-style: none;
+}

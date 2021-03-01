@@ -71,7 +71,7 @@ const DiceArea = ({ setDiceState }) => {
 
 	const DrawDice = (dice) => {
 		const diceArr = Object.values(dice);
-		const drawArr = diceArr.map((die) => {
+		const drawArr = diceArr.map((die, i) => {
 			let no;
 			switch (die) {
 				case 1:
@@ -96,7 +96,7 @@ const DiceArea = ({ setDiceState }) => {
 					break;
 			}
 			return (
-				<li>
+				<li key={i}>
 					<i
 						draggable='true'
 						onDragStart={drag}

@@ -1,22 +1,39 @@
 .win_score {
 	position: absolute;
-	top: 10%;
-	width: 90vw;
-	border: 8px dotted var(--text);
+	top: 3.5rem;
+	height: 85%;
+	max-height: 600px;
+	width: 80vw;
+	max-width: 800px;
+	border: 6px double var(--text);
 	border-radius: 50px;
-	background: var(--board);
+	background-color: var(--board);
 	display: flex;
-	justify-content: center;
-	transition: all 2s linear;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+	overflow: hidden;
+	transition: all 0.5s linear;
+}
+
+.score-list-container {
+	display: flex;
 }
 
 .score-container {
 	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin-top: 1rem;
 }
 
 .score-table {
+	display: flex;
+	flex-wrap: wrap;
 	list-style: none;
 	text-align: center;
+	margin: 0.1rem;
 	width: 100%;
 }
 
@@ -24,30 +41,51 @@
 	text-transform: capitalize;
 	min-width: 200px;
 	border: 2px solid var(--text);
-	background: none;
 	color: var(--text);
+	background: none;
 	padding: 0.5rem;
-	font-size: 1rem;
+	font-size: 0.8rem;
+	border-radius: 5px;
+}
+
+.score-table-btn:hover {
+	opacity: 0.7;
+	cursor: pointer;
 }
 
 .hidden {
-	transform: translateX(-92vw);
+	height: 0.9rem;
+	width: 10rem;
+	transform: translateX(0vw);
+	border: 2px solid var(--text);
 }
 
 .close-win-score {
-	height: 75%;
+	color: var(--text);
+	width: 100%;
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	right: 0;
+	top: 0;
+	right: 50%;
+	transform: translateX(50%);
+	margin-top: 10px;
 	background: none;
 	border: none;
-	color: var(--text);
 	outline: none;
-	writing-mode: vertical-lr;
+	font-size: 1rem;
 }
 
 .close-win-score:hover {
 	opacity: 0.7;
 	cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+	.score-container {
+		width: 40vw;
+	}
+
+	.score-table-btn {
+		min-width: 8rem;
+		/* width: 100px; */
+	}
 }

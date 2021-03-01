@@ -1,23 +1,10 @@
-//Iterate and return available scores
-
-const scoreLowerBoard = (diceArr) => {
+const scoreBoard = (diceArr) => {
+	//Upper Board
 	let filterArr = diceArr;
 	const scoreFilter = (num) =>
 		filterArr
 			.filter((x) => x === num)
 			.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-
-	return {
-		ones: scoreFilter(1),
-		twos: scoreFilter(2),
-		threes: scoreFilter(3),
-		fours: scoreFilter(4),
-		fives: scoreFilter(5),
-		sixes: scoreFilter(6),
-	};
-};
-
-const scoreUpperBoard = (diceArr) => {
 	//Sml Straight, Lrg Straight
 	const checkStraight = (checkSequence) => {
 		let seq = 1;
@@ -66,20 +53,22 @@ const scoreUpperBoard = (diceArr) => {
 	);
 
 	return {
+		ones: scoreFilter(1),
+		twos: scoreFilter(2),
+		threes: scoreFilter(3),
+		fours: scoreFilter(4),
+		fives: scoreFilter(5),
+		sixes: scoreFilter(6),
 		threeOfAKind: checkMulitples(3),
 		fourofAKind: checkMulitples(4),
 		fullHouse: checkFullHouse(),
 		smallStraight: checkStraight(4),
 		largeStraight: checkStraight(5),
 		yahtzee: checkMulitples(5),
-		bonus: 0,
 		chance: chance,
 	};
 };
 
-const scoring = (diceArr) => [
-	scoreLowerBoard(diceArr),
-	scoreUpperBoard(diceArr),
-];
+const scoring = (diceArr) => scoreBoard(diceArr);
 
 export default scoring;

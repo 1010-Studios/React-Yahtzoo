@@ -1,31 +1,46 @@
 import React from 'react';
 import '../styles/ScoreSelector.css';
 
-const ScoreTable = (score) => {
-	const scoreBTN = Object.keys(score).map((keyName, i) => (
-		<li className='score-table' key={i}>
-			<button className='score-table-btn' value={score[keyName]}>
-				{keyName} : {score[keyName]}
-			</button>
-		</li>
-	));
-	return <ul className='score-container'>{scoreBTN}</ul>;
-};
+const ScoreSelector = ({ diceScore, setActivePlayer, activePlayer }) => {
+	const scoreWindow = document.querySelector('.win_score');
 
-const ScoreSelector = (score) => {
-	const closeWindow = (ev) => {
-		ev.target.closest('div').classList.toggle('hidden');
+	const ScoreTable = (score) => {
+		const scoreBTN = Object.keys(score).map((keyName, i) => (
+			<div className='score-table' key={i}>
+				<button
+					id={keyName}
+					className='score-table-btn'
+					value={score[keyName]}
+					onClick={assignScore}>
+					{keyName} : {score[keyName]}
+				</button>
+			</div>
+		));
+		return <div className='score-container'>{scoreBTN}</div>;
 	};
-	console.log(score);
+
+	//Button Click
+
+	const assignScore = (ev) => {
+		setActivePlayer(
+			{ ...activePlayer },
+			(activePlayer.scoreCard[ev.target.id] = Number(ev.target.value))
+		);
+		closeWindow();
+	};
+
+	const closeWindow = (ev) => {
+		scoreWindow.classList.toggle('hidden');
+	};
+
 	return (
-		<div className='win_score'>
+		<div className='win_score hidden'>
+			<div className='score-list-container'>
+				<ScoreTable {...diceScore} />
+			</div>
 			<button className='close-win-score' onClick={closeWindow}>
-				<i className='fas fa-angle-double-right' />
-				Scores
+				<i className='fas fa-angle-double-down'>Assign Score</i>
 			</button>
-			<ScoreTable {...score[0]} />
-			<ScoreTable {...score[1]} />
-			<p></p>
 		</div>
 	);
 };
