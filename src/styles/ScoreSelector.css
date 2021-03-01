@@ -1,44 +1,53 @@
 .win_score {
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 80vw;
-	height: 80vh;
+	top: 10%;
+	width: 90vw;
 	border: 8px dotted var(--text);
 	border-radius: 50px;
 	background: var(--board);
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	justify-content: center;
+	transition: all 2s linear;
 }
 
-.btn_win_score_close {
-	position: absolute;
-	top: 1rem;
-	right: 1.2rem;
-	padding: 0;
-	font-size: 1.5rem;
+.score-container {
+	padding: 0.5rem;
+}
+
+.score-table {
+	list-style: none;
+	text-align: center;
+	width: 100%;
+}
+
+.score-table-btn {
+	text-transform: capitalize;
+	min-width: 200px;
+	border: 2px solid var(--text);
 	background: none;
 	color: var(--text);
-	border: none;
-	outline: none;
-	cursor: pointer;
-}
-
-.hidden {
-	display: none;
-}
-
-.scoretable {
-	margin: auto;
+	padding: 0.5rem;
 	font-size: 1rem;
 }
 
-.scoretable tr {
-	border: 2px dotted var(--text);
-	width: 50%;
+.hidden {
+	transform: translateX(-92vw);
 }
 
-.scoretable:nth-child(6) {
-	border: 2px solid black;
+.close-win-score {
+	height: 75%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 0;
+	background: none;
+	border: none;
+	color: var(--text);
+	outline: none;
+	writing-mode: vertical-lr;
+}
+
+.close-win-score:hover {
+	opacity: 0.7;
+	cursor: pointer;
 }

@@ -8,6 +8,7 @@ import scoring from '../logic/scoring';
 const GameController = () => {
 	const [diceState, setDiceState] = useState([]);
 	const [score, setScore] = useState(scoring(diceState));
+	const [activePlayer, setActivePlayer] = useState();
 
 	useEffect(() => {
 		setScore(scoring(diceState));
@@ -20,10 +21,9 @@ const GameController = () => {
 				</div>
 				<div className='logo-text'>Yahtzoo!</div>
 			</div>
-			<h2>{[...diceState]}</h2> {/* Placeholder for data checking*/}
 			<DiceArea setDiceState={setDiceState} />
+			<ScoreSelector {...score} activePlayer={activePlayer} />
 			<PlayerArea />
-			<ScoreSelector {...score} />
 		</section>
 	);
 };
