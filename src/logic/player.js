@@ -1,6 +1,6 @@
-const player = (name) => {
+const player = (playerName) => {
 	return {
-		name: name,
+		playerName: playerName,
 		scoreCard: {
 			ones: 0,
 			twos: 0,

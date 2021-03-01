@@ -7,21 +7,39 @@ import scoring from '../logic/scoring';
 import player from '../logic/player';
 
 const GameController = () => {
+	const players = [player('Player1'), player('Player2')];
+
 	const [diceState, setDiceState] = useState([]);
 	const [diceScore, setDiceScore] = useState(scoring(diceState));
-	const [activePlayerScore, setActivePlayerScore] = useState(player('Ty'));
-	// console.log(activePlayerScore.scoreCard);
+	const [playerState, setPlayerState] = useState(players);
+	const [activePlayer, setActivePlayer] = useState(0);
+	const [activePlayerScore, setActivePlayerScore] = useState(
+		playerState[activePlayer]
+	);
+
+	// console.log(playerState[activePlayer]);
+	console.log(activePlayerScore);
 
 	useEffect(() => {
 		setDiceScore(scoring(diceState));
 	}, [diceState]);
 
 	useEffect(() => {
-		setActivePlayerScore(activePlayerScore);
-	}, [activePlayerScore]);
+		setActivePlayerScore(playerState[activePlayer]);
+		players[activePlayer] = activePlayerScore;
+	}, [activePlayerScore, activePlayer, players, playerState]);
+
+	const nextTurn = () => {
+		if (activePlayer === players.length - 1) {
+			setActivePlayer(0);
+		} else {
+			setActivePlayer(activePlayer + 1);
+		}
+	};
 
 	return (
 		<section className='Game-container'>
+			<button onClick={nextTurn}>{players[activePlayer].playerName}</button>
 			<div className='logo-box'>
 				<div className='logo-back'>
 					<i className='fas fa-dice'></i>
@@ -34,7 +52,7 @@ const GameController = () => {
 				setActivePlayerScore={setActivePlayerScore}
 			/>
 			<DiceArea setDiceState={setDiceState} />
-			<PlayerArea {...activePlayerScore} />
+			<PlayerArea {...playerState[activePlayer]} />
 		</section>
 	);
 };

@@ -19,9 +19,9 @@ const PlayerArea = (props) => {
 		return <ul className='player-scores'>{playerScore}</ul>;
 	};
 
-	const PlayerCard = ({ name, scoreCard }) => (
+	const PlayerCard = ({ playerName, scoreCard }) => (
 		<section className='player-card'>
-			<h4>{name || 'Player'}</h4>
+			<h4>{playerName || 'Player'}</h4>
 			<h5>Score: {calcScore(scoreAsArr)}</h5>
 			<div className='player-scoreboard'>
 				<ScoreCard {...scoreCard} />
