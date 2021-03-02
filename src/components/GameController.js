@@ -16,6 +16,7 @@ const GameController = () => {
 	const [activePlayerScore, setActivePlayerScore] = useState(
 		playerState[activePlayer]
 	);
+	const [round, setRound] = useState(1);
 
 	useEffect(() => {
 		setDiceScore(scoring(diceState));
@@ -23,12 +24,13 @@ const GameController = () => {
 
 	useEffect(() => {
 		setActivePlayerScore(playerState[activePlayer]);
-		players[activePlayer] = activePlayerScore;
+		// players[activePlayer] = activePlayerScore;
 	}, [activePlayerScore, activePlayer, players, playerState]);
 
 	const nextTurn = () => {
 		if (activePlayer === players.length - 1) {
 			setActivePlayer(0);
+			setRound(round + 1);
 		} else {
 			setActivePlayer(activePlayer + 1);
 		}
@@ -43,13 +45,19 @@ const GameController = () => {
 				</div>
 				<div className='logo-text'>Yahtzoo!</div>
 			</div>
+			<h5> {players[activePlayer].playerName}'s Turn!</h5>
+			<h6>Round {round}</h6>
 			<ScoreSelector
 				diceScore={diceScore}
 				activePlayerScore={activePlayerScore}
 				setActivePlayerScore={setActivePlayerScore}
+				nextTurn={nextTurn}
 			/>
-			<DiceArea setDiceState={setDiceState} />
-			{/* <PlayerArea {...playerState[activePlayer]} /> */}
+			<DiceArea
+				setDiceState={setDiceState}
+				diceState={diceState}
+				activePlayer={activePlayer}
+			/>
 			<PlayerArea {...playerState} />
 		</section>
 	);

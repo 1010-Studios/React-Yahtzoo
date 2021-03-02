@@ -5,6 +5,7 @@ const ScoreSelector = ({
 	diceScore,
 	setActivePlayerScore,
 	activePlayerScore,
+	nextTurn,
 }) => {
 	const scoreWindow = document.querySelector('.win_score');
 
@@ -33,6 +34,8 @@ const ScoreSelector = ({
 			{ ...activePlayerScore },
 			(activePlayerScore.scoreCard[ev.target.id] = Number(ev.target.value))
 		);
+		nextTurn();
+
 		closeWindow();
 	};
 

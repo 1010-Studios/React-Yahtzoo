@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/DiceArea.css';
 
-const DiceArea = ({ setDiceState }) => {
+const DiceArea = ({ setDiceState, diceState, activePlayer }) => {
 	const [holdDice, setHoldDice] = useState([]);
-	const [activeDice, setActiveDice] = useState([1, 2, 3, 4, 5]);
+	const [activeDice, setActiveDice] = useState(diceState);
 
 	useEffect(() => {
 		setDiceState([...activeDice, ...holdDice].sort());
 	}, [holdDice, activeDice, setDiceState]);
 
+	useEffect(() => {
+		setActiveDice([]);
+		setHoldDice([]);
+	}, [activePlayer]);
+
 	function rollDice() {
-		for (let i = 0; i < activeDice.length; i++) {
+		let diceInCup = diceState.length !== 0 ? activeDice.length : 5;
+
+		for (let i = 0; i < diceInCup; i++) {
 			activeDice[i] = Math.floor(Math.random() * 6 + 1);
 		}
 		setActiveDice([...activeDice]);
