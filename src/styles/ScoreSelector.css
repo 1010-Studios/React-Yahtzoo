@@ -53,6 +53,13 @@
 	cursor: pointer;
 }
 
+.score-table-btn:disabled {
+	border-color: black;
+	pointer-events: none;
+	opacity: 0.3;
+	text-decoration: line-through;
+}
+
 .hidden {
 	height: 0.9rem;
 	width: 10rem;

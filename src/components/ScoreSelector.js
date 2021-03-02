@@ -12,6 +12,9 @@ const ScoreSelector = ({
 		const scoreBTN = Object.keys(score).map((keyName, i) => (
 			<div className='score-table' key={i}>
 				<button
+					disabled={
+						activePlayerScore.scoreCard[keyName] === false ? false : true
+					}
 					id={keyName}
 					className='score-table-btn'
 					value={score[keyName]}

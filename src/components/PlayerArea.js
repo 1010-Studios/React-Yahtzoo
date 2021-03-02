@@ -12,7 +12,7 @@ const PlayerArea = (props) => {
 		const playerScore = Object.keys(score).map((keyName, i) => (
 			<li key={i}>
 				<div>
-					{keyName} : {score[keyName]}
+					{keyName} : {Number(score[keyName]) || 0}
 				</div>
 			</li>
 		));
