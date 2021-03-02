@@ -7,8 +7,6 @@ const ScoreSelector = ({
 	activePlayerScore,
 	nextTurn,
 }) => {
-	const scoreWindow = document.querySelector('.win_score');
-
 	const ScoreTable = (score) => {
 		const scoreBTN = Object.keys(score).map((keyName, i) => (
 			<div className='score-table' key={i}>

@@ -52,6 +52,8 @@ const scoreBoard = (diceArr) => {
 		0
 	);
 
+	//Bonuses
+
 	return {
 		ones: scoreFilter(1),
 		twos: scoreFilter(2),

@@ -4,7 +4,7 @@
 
 #### Live View:
 
-This is a porfolio project started on February 28, 2021.
+This is a porfolio project started on February 27, 2021.
 
 #### How to Play Yahtzee
 

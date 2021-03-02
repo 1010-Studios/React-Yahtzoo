@@ -7,7 +7,12 @@ import scoring from '../logic/scoring';
 import player from '../logic/player';
 
 const GameController = () => {
-	const players = [player('Ty'), player('Courtenay'), player('Leila')];
+	const players = [
+		player('Ty'),
+		player('Courtenay'),
+		player('Leila'),
+		player('Scruffy'),
+	];
 
 	const [diceState, setDiceState] = useState([]);
 	const [diceScore, setDiceScore] = useState(scoring(diceState));
@@ -26,6 +31,8 @@ const GameController = () => {
 		setActivePlayerScore(playerState[activePlayer]);
 	}, [activePlayerScore, activePlayer, playerState]);
 
+	const errorAvoider = () => setPlayerState(players); //Just a placeholder to prevent errors
+
 	const nextTurn = () => {
 		if (activePlayer === players.length - 1) {
 			setActivePlayer(0);
@@ -36,6 +43,7 @@ const GameController = () => {
 	};
 
 	if (round >= 14) {
+		errorAvoider();
 		return (
 			<section className='Game-container'>
 				<h1>GAME O'ER</h1>
