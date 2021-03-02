@@ -35,22 +35,13 @@ const ScoreSelector = ({
 			(activePlayerScore.scoreCard[ev.target.id] = Number(ev.target.value))
 		);
 		nextTurn();
-
-		closeWindow();
-	};
-
-	const closeWindow = (ev) => {
-		scoreWindow.classList.toggle('hidden');
 	};
 
 	return (
-		<div className='win_score hidden'>
+		<div className='win_score '>
 			<div className='score-list-container'>
 				<ScoreTable {...diceScore} />
 			</div>
-			<button className='close-win-score' onClick={closeWindow}>
-				<i className='fas fa-angle-double-down'>Assign Score</i>
-			</button>
 		</div>
 	);
 };

@@ -24,8 +24,7 @@ const GameController = () => {
 
 	useEffect(() => {
 		setActivePlayerScore(playerState[activePlayer]);
-		// players[activePlayer] = activePlayerScore;
-	}, [activePlayerScore, activePlayer, players, playerState]);
+	}, [activePlayerScore, activePlayer, playerState]);
 
 	const nextTurn = () => {
 		if (activePlayer === players.length - 1) {
@@ -36,28 +35,41 @@ const GameController = () => {
 		}
 	};
 
+	if (round >= 14) {
+		return (
+			<section className='Game-container'>
+				<h1>GAME O'ER</h1>
+				<PlayerArea {...playerState} />
+			</section>
+		);
+	}
+
 	return (
 		<section className='Game-container'>
-			<button onClick={nextTurn}>{players[activePlayer].playerName}</button>
 			<div className='logo-box'>
 				<div className='logo-back'>
 					<i className='fas fa-dice'></i>
 				</div>
 				<div className='logo-text'>Yahtzoo!</div>
 			</div>
-			<h5> {players[activePlayer].playerName}'s Turn!</h5>
-			<h6>Round {round}</h6>
-			<ScoreSelector
-				diceScore={diceScore}
-				activePlayerScore={activePlayerScore}
-				setActivePlayerScore={setActivePlayerScore}
-				nextTurn={nextTurn}
-			/>
-			<DiceArea
-				setDiceState={setDiceState}
-				diceState={diceState}
-				activePlayer={activePlayer}
-			/>
+			<h5>
+				{' '}
+				{players[activePlayer].playerName}'s Turn! <br />
+				<span>--Round {round}--</span>
+			</h5>
+			<div className='game-board-container'>
+				<DiceArea
+					setDiceState={setDiceState}
+					diceState={diceState}
+					activePlayer={activePlayer}
+				/>
+				<ScoreSelector
+					diceScore={diceScore}
+					activePlayerScore={activePlayerScore}
+					setActivePlayerScore={setActivePlayerScore}
+					nextTurn={nextTurn}
+				/>
+			</div>
 			<PlayerArea {...playerState} />
 		</section>
 	);

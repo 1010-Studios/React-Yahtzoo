@@ -31,7 +31,7 @@ const scoreBoard = (diceArr) => {
 					case 4:
 						return diceArr.reduce((a, b) => a + b);
 					default:
-						return 100;
+						return 50;
 				}
 			}
 			repeated = 1;
@@ -66,6 +66,7 @@ const scoreBoard = (diceArr) => {
 		largeStraight: checkStraight(5),
 		yahtzee: checkMulitples(5),
 		chance: chance,
+		bonusScore: 0,
 	};
 };
 

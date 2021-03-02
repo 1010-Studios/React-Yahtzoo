@@ -2,8 +2,6 @@ import React from 'react';
 import '../styles/PlayerArea.css';
 
 const PlayerArea = (props) => {
-	// console.log(props);
-
 	const calcScore = (scoreCard) => {
 		return scoreCard.reduce((a, b) => a + b);
 	};
@@ -12,7 +10,7 @@ const PlayerArea = (props) => {
 		const playerScore = Object.keys(score).map((keyName, i) => (
 			<li key={i}>
 				<div>
-					{keyName} : {Number(score[keyName]) || 0}
+					{keyName} : {Number(score[keyName]) || '__'}
 				</div>
 			</li>
 		));
@@ -33,11 +31,8 @@ const PlayerArea = (props) => {
 	};
 
 	const ScoreBoard = ({ ...playerArr }) => {
-		console.log(playerArr);
-		console.log('here');
-		console.log(Object.values(playerArr));
 		const cards = Object.values(playerArr).map((player) => (
-			<PlayerCard {...player}>Yo</PlayerCard>
+			<PlayerCard {...player} />
 		));
 		return <div className='player-cards'>{cards}</div>;
 	};
