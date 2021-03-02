@@ -16,6 +16,7 @@ const player = (playerName) => {
 			yahtzee: false,
 			chance: false,
 			bonus: false,
+			upperBoard: false,
 		},
 		score: false,
 	};

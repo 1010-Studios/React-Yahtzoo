@@ -79,7 +79,10 @@ const GameController = () => {
 					diceState={diceState}
 				/>
 			</div>
-			<PlayerArea {...playerState} />
+			<PlayerArea
+				playerState={playerState}
+				activePlayerScore={activePlayerScore}
+			/>
 		</section>
 	);
 };

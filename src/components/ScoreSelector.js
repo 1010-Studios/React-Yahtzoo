@@ -21,8 +21,9 @@ const ScoreSelector = ({
 			if (upperBoard.includes(keyName) && score > 0 && currentScore === false) {
 				return false;
 			}
-			if (currentScore !== false) return true;
-		} else return false;
+		}
+		if (currentScore !== false) return true;
+		else return false;
 	};
 
 	const ScoreTable = (score) => {
@@ -50,6 +51,25 @@ const ScoreSelector = ({
 	const isYahtzee =
 		diceScore.yahtzee === 50 && activePlayerScore.scoreCard.yahtzee === 50;
 
+	const bonusUpperBoard =
+		Object.values(activePlayerScore.scoreCard)
+			.slice(0, 6)
+			.reduce((a, b) => a + b) >= 63;
+
+	console.log(
+		Object.values(activePlayerScore.scoreCard)
+			.slice(0, 6)
+			.reduce((a, b) => a + b)
+	);
+	console.log(bonusUpperBoard);
+
+	if (bonusUpperBoard) {
+		setActivePlayerScore(
+			{ ...activePlayerScore },
+			(activePlayerScore.scoreCard.upperBoard = 35)
+		);
+	}
+
 	const assignScore = (ev) => {
 		if (isYahtzee) {
 			setActivePlayerScore(
@@ -57,6 +77,7 @@ const ScoreSelector = ({
 				(activePlayerScore.scoreCard.bonus += 100)
 			);
 		}
+
 		setActivePlayerScore(
 			{ ...activePlayerScore },
 			(activePlayerScore.scoreCard[ev.target.id] = Number(ev.target.value))
