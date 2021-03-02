@@ -76,6 +76,7 @@ const GameController = () => {
 					activePlayerScore={activePlayerScore}
 					setActivePlayerScore={setActivePlayerScore}
 					nextTurn={nextTurn}
+					diceState={diceState}
 				/>
 			</div>
 			<PlayerArea {...playerState} />

@@ -2,7 +2,7 @@
 
 ### It's legally distinct from Yahtzee!!
 
-#### Live View:
+#### Live View: https://ty-react-yahtzee.netlify.app/
 
 This is a porfolio project started on February 27, 2021.
 

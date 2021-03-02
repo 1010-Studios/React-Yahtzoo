@@ -9,7 +9,7 @@ const player = (playerName) => {
 			fives: false,
 			sixes: false,
 			threeOfAKind: false,
-			fourofAKind: false,
+			fourOfAKind: false,
 			fullHouse: false,
 			smallStraight: false,
 			largeStraight: false,

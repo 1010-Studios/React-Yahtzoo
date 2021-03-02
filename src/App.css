@@ -41,6 +41,7 @@ Layout & Logo
 	flex-direction: column;
 	min-height: 100vh;
 	align-items: center;
+	justify-content: baseline;
 	background: var(--board);
 	font-family: var(--bodytext);
 	color: var(--text);
@@ -99,5 +100,14 @@ Layout & Logo
 		padding: 0;
 		margin-top: -20%;
 		transform: scale(70%);
+	}
+
+	.logo-box {
+		position: absolute;
+		top: 1rem;
+		left: 0;
+		transform: scale(60%);
+		margin: 0;
+		padding: 0;
 	}
 }

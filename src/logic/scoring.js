@@ -62,13 +62,12 @@ const scoreBoard = (diceArr) => {
 		fives: scoreFilter(5),
 		sixes: scoreFilter(6),
 		threeOfAKind: checkMulitples(3),
-		fourofAKind: checkMulitples(4),
+		fourOfAKind: checkMulitples(4),
 		fullHouse: checkFullHouse(),
 		smallStraight: checkStraight(4),
 		largeStraight: checkStraight(5),
 		yahtzee: checkMulitples(5),
 		chance: chance,
-		bonusScore: 0,
 	};
 };
 

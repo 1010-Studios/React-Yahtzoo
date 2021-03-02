@@ -1,11 +1,12 @@
 .player-container {
-	width: 90%;
+	width: 90vw;
 	overflow-x: auto;
 }
 
 .player-cards {
 	display: flex;
 	justify-content: center;
+	margin-top: 1rem;
 }
 
 .player-card {
@@ -15,7 +16,9 @@
 	border: 2px solid var(--text);
 	border-radius: 5px;
 	width: 30%;
+	/* max-width: 200px; */
 	text-transform: capitalize;
+	margin: 0 0.2rem;
 }
 
 .player-card h4 {
@@ -48,7 +51,6 @@
 	}
 
 	.player-container {
-		/* position: absolute; */
 		top: 5vh;
 		min-height: 90vh;
 		background: var(--board);
@@ -59,12 +61,11 @@
 	.player-cards {
 		flex-wrap: wrap;
 		justify-content: center;
+		margin: 0;
 	}
 
 	.player-card :is(h4) {
 		font-size: 1rem;
-		/* text-align: center; */
-		/* margin: 0 auto; */
 		padding: 0 0.5rem;
 	}
 
