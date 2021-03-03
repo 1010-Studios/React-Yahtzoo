@@ -11,7 +11,10 @@ const GameController = () => {
 
 	const [diceState, setDiceState] = useState([]);
 	const [diceScore, setDiceScore] = useState(scoring(diceState));
-	const [playerState, setPlayerState] = useState(players);
+	// const [playerState, setPlayerState] = useState(players);
+	// const errorAvoider = () => setPlayerState(players); //Just a placeholder to prevent errors
+	//Removed state since 2 players is hardcoded -- DO NOT UNCOMMENT
+	const playerState = players;
 	const [activePlayer, setActivePlayer] = useState(0);
 	const [activePlayerScore, setActivePlayerScore] = useState(
 		playerState[activePlayer]
@@ -26,8 +29,6 @@ const GameController = () => {
 		setActivePlayerScore(playerState[activePlayer]);
 	}, [activePlayerScore, activePlayer, playerState]);
 
-	const errorAvoider = () => setPlayerState(players); //Just a placeholder to prevent errors
-
 	const nextTurn = () => {
 		if (activePlayer === players.length - 1) {
 			setActivePlayer(0);
@@ -38,11 +39,13 @@ const GameController = () => {
 	};
 
 	if (round >= 14) {
-		errorAvoider();
 		return (
 			<section className='Game-container'>
-				<h1>GAME O'ER</h1>
-				<PlayerArea {...playerState} />
+				<h1>GAME OVER</h1>
+				<PlayerArea
+					playerState={playerState}
+					activePlayerScore={activePlayerScore}
+				/>
 			</section>
 		);
 	}
