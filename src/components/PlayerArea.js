@@ -40,6 +40,7 @@ const PlayerArea = ({ activePlayerScore, playerState }) => {
 
 	return (
 		<div className='player-container'>
+			<h5>ScoreCards</h5>
 			<ScoreBoard {...playerState} />
 		</div>
 	);
