@@ -4,6 +4,8 @@
 
 #### Live View: https://ty-react-yahtzee.netlify.app/
 
+Tech Stack: React, JS, HMTL, CSS
+
 This is a porfolio project started on February 27, 2021.
 
 #### How to Play Yahtzee

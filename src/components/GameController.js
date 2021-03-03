@@ -7,12 +7,7 @@ import scoring from '../logic/scoring';
 import player from '../logic/player';
 
 const GameController = () => {
-	const players = [
-		player('Ty'),
-		player('Courtenay'),
-		player('Leila'),
-		player('Scruffy'),
-	];
+	const players = [player('Player 1'), player('Player 2')];
 
 	const [diceState, setDiceState] = useState([]);
 	const [diceScore, setDiceScore] = useState(scoring(diceState));

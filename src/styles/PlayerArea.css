@@ -16,7 +16,6 @@
 	border: 2px solid var(--text);
 	border-radius: 5px;
 	width: 30%;
-	/* max-width: 200px; */
 	text-transform: capitalize;
 	margin: 0 0.2rem;
 }
@@ -52,7 +51,6 @@
 
 	.player-container {
 		top: 5vh;
-		min-height: 90vh;
 		background: var(--board);
 		margin: 0;
 		padding: 0;
@@ -62,18 +60,19 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		margin: 0;
+		width: 100%;
 	}
 
 	.player-card :is(h4) {
 		font-size: 1rem;
-		padding: 0 0.5rem;
+		padding: 0 0.5em;
 	}
 
 	.player-card {
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: center;
-		width: 48%;
-		max-height: 400px;
+		padding: 0.5rem;
+		min-width: 40%;
 	}
 }

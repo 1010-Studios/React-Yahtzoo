@@ -2,13 +2,7 @@ import React from 'react';
 import '../styles/PlayerArea.css';
 
 const PlayerArea = ({ activePlayerScore, playerState }) => {
-	// const bonusUpperBoard =
-	// 	Object.values(activePlayerScore.scoreCard)
-	// 		.slice(0, 6)
-	// 		.reduce((a, b) => a + b) >= 63;
-
 	const calcScore = (scoreCard) => {
-		// const bonusScore = bonusUpperBoard ? 0 : 0;
 		return scoreCard.reduce((a, b) => a + b);
 	};
 
