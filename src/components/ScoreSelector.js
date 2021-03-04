@@ -18,11 +18,15 @@ const ScoreSelector = ({
 	const scoreIsAvailable = (score, keyName, currentScore) => {
 		const upperBoard = Object.keys(diceScore).slice(0, 6);
 		if (isYahtzee) {
+			// const checkUpperBoard =
+			// 	upperBoard.includes(keyName) && score > 0 && currentScore === false;
+
 			if (upperBoard.includes(keyName) && score > 0 && currentScore === false) {
-				// if (score === currentScore) return false;
 				return false;
 			}
-			// return false;
+
+			// if (!checkUpperBoard && currentScore !== false) return true;
+			// return true;
 		}
 		if (currentScore !== false) return true;
 		else return false;

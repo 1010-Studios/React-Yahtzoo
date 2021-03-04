@@ -11,10 +11,7 @@ const GameController = () => {
 
 	const [diceState, setDiceState] = useState([]);
 	const [diceScore, setDiceScore] = useState(scoring(diceState));
-	// const [playerState, setPlayerState] = useState(players);
-	// const errorAvoider = () => setPlayerState(players); //Just a placeholder to prevent errors
-	//Removed state since 2 players is hardcoded -- DO NOT UNCOMMENT
-	const playerState = players;
+	const [playerState, setPlayerState] = useState(players);
 	const [activePlayer, setActivePlayer] = useState(0);
 	const [activePlayerScore, setActivePlayerScore] = useState(
 		playerState[activePlayer]
@@ -27,6 +24,7 @@ const GameController = () => {
 
 	useEffect(() => {
 		setActivePlayerScore(playerState[activePlayer]);
+		setPlayerState(playerState);
 	}, [activePlayerScore, activePlayer, playerState]);
 
 	const nextTurn = () => {
