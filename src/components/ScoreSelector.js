@@ -17,6 +17,9 @@ const ScoreSelector = ({
 
 	const scoreIsAvailable = (score, keyName, currentScore) => {
 		const upperBoard = Object.keys(diceScore).slice(0, 6);
+		if (diceState.length <= 1) {
+			return true;
+		}
 		if (isYahtzee) {
 			// const checkUpperBoard =
 			// 	upperBoard.includes(keyName) && score > 0 && currentScore === false;
