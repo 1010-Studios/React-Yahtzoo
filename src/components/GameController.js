@@ -40,6 +40,7 @@ const GameController = () => {
 		return (
 			<section className='Game-container'>
 				<h1>GAME OVER</h1>
+				<h5>--Refresh page to play again--</h5>
 				<PlayerArea
 					playerState={playerState}
 					activePlayerScore={activePlayerScore}
